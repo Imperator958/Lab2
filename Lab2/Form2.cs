@@ -12,12 +12,22 @@ namespace Lab2
 {
     public partial class Form2 : Form
     {
-        double cena = 0.0;
-        double cena_dysku = 0.0;
-        double cena_karty = 0.0;
+        private double _cena = 0.0;
+        private double cena_dysku = 0.0;
+        private double cena_karty = 0.0;
         public Form2()
         {
             InitializeComponent();
+        }
+
+        public double Get_Cena_form2()
+        {
+            return _cena;
+        }
+
+        public void Set_Cena_form2(double cena)
+        {
+            _cena = cena;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -32,8 +42,8 @@ namespace Lab2
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            cena = cena - cena_dysku;
-            cena += 169.99;
+            _cena = _cena - cena_dysku;
+            _cena += 169.99;
             cena_dysku = 169.99;
         }
 
@@ -41,26 +51,26 @@ namespace Lab2
         {
             if (comboBox1.SelectedItem == "RTX 3060")
             {
-                cena = cena - cena_karty;
-                cena += 1769.99;
+                _cena = _cena - cena_karty;
+                _cena += 1769.99;
                 cena_karty = 1769.99;
             }
             else if(comboBox1.SelectedItem == "RTX 4090")
             {
-                cena = cena - cena_karty;
-                cena += 10690.99;
+                _cena = _cena - cena_karty;
+                _cena += 10690.99;
                 cena_karty = 10690.99;
             }
             else if(comboBox1.SelectedItem == "GTX 1050Ti")
             {
-                cena = cena - cena_karty;
-                cena += 934.27;
+                _cena = _cena - cena_karty;
+                _cena += 934.27;
                 cena_karty = 934.27;
             }
             else if(comboBox1.SelectedItem == "RTX 2070")
             {
-                cena = cena - cena_karty;
-                cena += 1449.99;
+                _cena = _cena - cena_karty;
+                _cena += 1449.99;
                 cena_karty = 1449.99;
             }
         }
@@ -69,18 +79,18 @@ namespace Lab2
         {
             if (checkBox1.Checked)
             {
-                cena += 129.99;
+                _cena += 129.99;
             }
             else
             {
-                cena -= 129.99;
+                _cena -= 129.99;
             }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            cena = cena - cena_dysku;
-            cena += 599.99;
+            _cena = _cena - cena_dysku;
+            _cena += 599.99;
             cena_dysku = 599.99;
         }
 
@@ -91,15 +101,15 @@ namespace Lab2
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            cena = cena - cena_dysku;
-            cena += 250.0;
+            _cena = _cena - cena_dysku;
+            _cena += 250.0;
             cena_dysku = 250.0;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            cena = cena - cena_dysku;
-            cena += 349.0;
+            _cena = _cena - cena_dysku;
+            _cena += 349.0;
             cena_dysku = 349.0;
         }
 
@@ -107,11 +117,11 @@ namespace Lab2
         {
             if (checkBox4.Checked)
             {
-                cena += 40.99;
+                _cena += 40.99;
             }
             else
             {
-                cena -= 40.99;
+                _cena -= 40.99;
             }
         }
 
@@ -119,11 +129,11 @@ namespace Lab2
         {
             if (checkBox3.Checked)
             {
-                cena += 59.99;
+                _cena += 59.99;
             }
             else
             {
-                cena -= 59.99;
+                _cena -= 59.99;
             }
         }
 
@@ -131,20 +141,24 @@ namespace Lab2
         {
             if(checkBox2.Checked)
             {
-                cena += 148.99;
+                _cena += 148.99;
             }
             else
             {
-                cena -= 148.99;
+                _cena -= 148.99;
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            cena = Math.Round(cena, 2);
-            label1.Text = cena.ToString();
+            _cena = Math.Round(_cena, 2);
+            label1.Text = _cena.ToString();
         }
 
+        private void process1_Exited(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

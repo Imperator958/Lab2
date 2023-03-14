@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.process1 = new System.Diagnostics.Process();
             this.SuspendLayout();
             // 
             // button1
@@ -219,6 +220,19 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // process1
+            // 
+            this.process1.EnableRaisingEvents = true;
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardInputEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
+            this.process1.Exited += new System.EventHandler(this.process1_Exited);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -263,5 +277,6 @@
         private Label label3;
         private Label label4;
         private System.Windows.Forms.Timer timer1;
+        private System.Diagnostics.Process process1;
     }
 }
